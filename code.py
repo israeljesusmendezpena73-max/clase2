@@ -28,8 +28,8 @@ def jugar():
         reloj.tick(500)
         pantalla.fill(CIELO)
         for evento in pygame.event.get():
-            if evento.type ==pygame.QUIT:
-                corriendo=False
+            pygame.quit()
+            sys.exit()
                 keys=pygame.key.get_pressed
             if keys[pygame.K_RIGHT]:
                 robot.x+=6
@@ -57,6 +57,21 @@ def jugar():
                 window.blit(m_img,(m.x,m.y))
             txt=Fuente.render(f"puntos:{score}",True,BLANCO)
             pygame.display.flip()
-            
-pygame.quit()
-sys.exit()
+            while True:
+                window.fill(Cielo)
+                txt1=Fuente.render("game over",True,ROJO)
+                txt2=Fuente.render(f"Puntaje final:{score}",True,BLANCO)
+                txt3=Fuente.rendrer("Presiona R para rewiniciar",True,BLANCO)
+                window.blit(txt1,(x//2-60, y//2-40))
+                window.blit(txt2,(x//-90,y//2))
+                window.blit(txt3,(x//2-130, y//2+40))ç
+                pygame,display.flip()
+                for evento in pygame.event.get():
+                    if evento.type==pygame.QUIT:
+                        pygame:quit()
+                        sys:exit()
+                    if evento.type==pygame.KEYDOWN:
+                        if evemto.key==pygame:K_r:
+                            return
+while True:
+    jugar())
